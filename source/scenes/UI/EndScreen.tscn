@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://caeewi4sjygvu"]
+
+[ext_resource type="Script" path="res://source/scripts/EndScreen.gd" id="1_p6f5o"]
+[ext_resource type="PackedScene" uid="uid://du2egts0rr4va" path="res://source/scenes/UI/MainMenu.tscn" id="2_ixqqm"]
+[ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="3_lhmam"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6f5o")
+main_menu = ExtResource("2_ixqqm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="YouDied" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -132.0
+offset_right = 316.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_lhmam")
+theme_override_font_sizes/font_size = 128
+text = "You survived!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 60.0
+offset_right = 132.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lhmam")
+theme_override_font_sizes/font_size = 48
+text = "Menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lhmam")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

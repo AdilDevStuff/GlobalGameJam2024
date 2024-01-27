@@ -8,7 +8,7 @@ size = Vector2(64, 64)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["Enemy"]]
 collision_layer = 4
-collision_mask = 17
+collision_mask = 81
 motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 4294967294
@@ -26,17 +26,24 @@ shape = SubResource("RectangleShape2D_geqfw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 20.0
 max_speed = 400.0
-debug_enabled = true
 
-[node name="Range" type="Area2D" parent="."]
+[node name="EnemyVision" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 17
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Range"]
-polygon = PackedVector2Array(0, 0, 960, -256, 960, 256)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyVision"]
+polygon = PackedVector2Array(0, 0, 448, -256, 448, 256)
+
+[node name="EnemyRange" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 17
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyRange"]
+polygon = PackedVector2Array(0, 0, 64, 64, 64, -64)
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
-[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="body_entered" from="EnemyVision" to="." method="_on_enemy_vision_body_entered"]
+[connection signal="body_exited" from="EnemyVision" to="." method="_on_enemy_vision_body_exited"]
+[connection signal="body_entered" from="EnemyRange" to="." method="_on_enemy_range_body_entered"]

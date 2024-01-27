@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://cscjln50scenx"]
+
+[ext_resource type="Script" path="res://source/scripts/LevelEndDoor.gd" id="1_efqie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw4lm"]
+size = Vector2(192, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyix8"]
+radius = 113.137
+
+[sub_resource type="Animation" id="Animation_wx7jc"]
+resource_name = "OpenDoor"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-200, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 3.49691e-06), Vector2(-120, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3q720"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 3.49691e-06)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdtxu"]
+_data = {
+"OpenDoor": SubResource("Animation_wx7jc"),
+"RESET": SubResource("Animation_3q720")
+}
+
+[node name="LevelEndDoor" type="AnimatableBody2D" groups=["CaptiveDoor"]]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_efqie")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.290196, 0.113725, 0, 1)
+offset = Vector2(80, 0)
+polygon = PackedVector2Array(-96, -8, -96, 8, 96, 8, 96, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(80, 3.49691e-06)
+shape = SubResource("RectangleShape2D_mw4lm")
+
+[node name="DoorRange" type="Area2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRange"]
+shape = SubResource("CircleShape2D_oyix8")
+
+[node name="DoorAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xdtxu")
+}
+
+[connection signal="body_entered" from="DoorRange" to="." method="_on_door_range_body_entered"]
+[connection signal="body_exited" from="DoorRange" to="." method="_on_door_range_body_exited"]

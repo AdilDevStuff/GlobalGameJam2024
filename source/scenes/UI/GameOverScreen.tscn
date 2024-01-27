@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs5d4osndh8e"]
+
+[ext_resource type="Script" path="res://source/scripts/GameOverScreen.gd" id="1_lrogq"]
+[ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="2_5021j"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrogq")
+gameover_text = Array[String](["Never Laugh!!!", "Should've made me laugh!", "Laughter silenced, darkness prevails.", "Jokes end, nightmare begins.", "Laughs extinguished, despair ensues."])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="YouDied" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -100.0
+offset_right = 163.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5021j")
+theme_override_font_sizes/font_size = 64
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 124.0
+offset_right = 128.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

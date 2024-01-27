@@ -1,20 +1,15 @@
 extends CharacterBody2D
 
 @export var speed: float = 400
-
-@export_group("Refs")
-@export var pickup_label: Label
-
-var is_in_pickup_range: bool = false
-var pickup_picked: bool = false
+@onready var light: PointLight2D = $PointLight2D
 
 func _physics_process(_delta: float) -> void:
 	movement()
-	pickup_label.visible = true if is_in_pickup_range else false
 	
-	if is_in_pickup_range:
-		if Input.is_action_just_pressed("Pickup"):
-			Global.have_captive_unlock_key = true
+	pickup_flashlight()
+	pickup_captive_key()
+	pickup_level_end_key()
+	make_captives_follow_player()
 
 func movement():
 	var input_vector = Input.get_vector("Left", "Right", "Up", "Down")
@@ -22,10 +17,23 @@ func movement():
 	velocity = velocity.normalized() * speed
 	move_and_slide()
 
-func _on_pickup_range_area_entered(area: Area2D) -> void:
-	if area.is_in_group("CaptiveKey") or area.is_in_group("Pickup"):
-		is_in_pickup_range = true
+func pickup_captive_key():
+	if Global.is_in_captive_key_range:
+		if Input.is_action_just_pressed("Pickup"):
+			Global.is_captive_key_collected = true
 
-func _on_pickup_range_area_exited(area: Area2D) -> void:
-	if area.is_in_group("CaptiveKey") or area.is_in_group("Pickup"):
-		is_in_pickup_range = false
+func pickup_flashlight():
+	if Global.is_in_flashlight_range:
+		if Input.is_action_just_pressed("Pickup"):
+			Global.is_flashlight_collected = true
+			light.energy = 1
+
+func pickup_level_end_key():
+	if Global.is_in_end_key_range:
+		if Input.is_action_just_pressed("Pickup"):
+			Global.is_end_key_collected = true
+
+func make_captives_follow_player():
+	if Global.is_in_captive_range:
+		if Input.is_action_just_pressed("Pickup"):
+			Global.can_captives_follow_player = !Global.can_captives_follow_player 
