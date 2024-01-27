@@ -24,8 +24,8 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      inkscape:zoom="0.59479167"
-     inkscape:cx="608.61646"
-     inkscape:cy="497.65324"
+     inkscape:cx="891.0683"
+     inkscape:cy="526.23467"
      inkscape:window-width="1920"
      inkscape:window-height="1002"
      inkscape:window-x="0"
@@ -39,11 +39,177 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#000000;stroke:none;stroke-width:15;stroke-dasharray:30, 15;stroke-dashoffset:300"
+       style="fill:#ff9955;stroke:#2b1100;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
        id="rect1"
-       width="132.48058"
-       height="76.385162"
-       x="578.5025"
-       y="405.75085" />
+       width="1079.918"
+       height="721.45404"
+       x="420.04102"
+       y="179.27298" />
+    <rect
+       style="fill:#ff9955;stroke:#2b1100;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect2"
+       width="472.65488"
+       height="348.22702"
+       x="1027.3041"
+       y="179.27298" />
+    <rect
+       style="fill:#ff9955;stroke:#2b1100;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect3"
+       width="728.47974"
+       height="373.22699"
+       x="771.47925"
+       y="527.5" />
+    <rect
+       style="fill:#ff9955;stroke:#2b1100;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect4"
+       width="607.26306"
+       height="348.22705"
+       x="420.04102"
+       y="179.27298" />
+    <rect
+       style="fill:#ff9955;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect5"
+       width="50.443901"
+       height="97.603706"
+       x="745.87537"
+       y="669.31165" />
+    <rect
+       style="fill:#ff9955;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect6"
+       width="50.443901"
+       height="97.603706"
+       x="500.56982"
+       y="-1308.4333"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#ff9955;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect7"
+       width="50.443901"
+       height="97.603706"
+       x="-1052.526"
+       y="-391.08557"
+       transform="scale(-1)" />
+    <rect
+       style="fill:#000000;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect8"
+       width="90.201683"
+       height="155.30295"
+       x="372.45367"
+       y="640.46204" />
+    <rect
+       style="fill:#00ff00;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="rect9"
+       width="90.201683"
+       height="155.30295"
+       x="1453.6726"
+       y="275.73502" />
+    <text
+       xml:space="preserve"
+       style="font-size:86.4148px;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';fill:#00ff00;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       x="85.315826"
+       y="746.59497"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         x="85.315826"
+         y="746.59497"
+         style="fill:#000000;stroke-width:25">Start</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:86.4148px;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';fill:#00ff00;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       x="1565.8722"
+       y="390.24167"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="1565.8722"
+         y="390.24167"
+         style="fill:#000000;stroke-width:25">Finish</tspan></text>
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="path10"
+       cx="520.32672"
+       cy="254.32703"
+       rx="28.50684"
+       ry="26.418964" />
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="ellipse10"
+       cx="491.81985"
+       cy="315.86475"
+       rx="28.50684"
+       ry="26.418964" />
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="ellipse11"
+       cx="563.5813"
+       cy="307.16495"
+       rx="28.50684"
+       ry="26.418964" />
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="ellipse12"
+       cx="1118.7841"
+       cy="-1156.3807"
+       rx="28.50684"
+       ry="26.418964"
+       transform="rotate(74.412886)" />
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="ellipse13"
+       cx="1090.2772"
+       cy="-1094.843"
+       rx="28.50684"
+       ry="26.418964"
+       transform="rotate(74.412886)" />
+    <ellipse
+       style="fill:#008080;stroke:none;stroke-width:25.0001;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="ellipse14"
+       cx="1162.0387"
+       cy="-1103.5428"
+       rx="28.50684"
+       ry="26.418964"
+       transform="rotate(74.412886)" />
+    <circle
+       style="fill:#ff0000;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       id="path14"
+       cx="1263.6315"
+       cy="353.38647"
+       r="41.421452" />
+    <text
+       xml:space="preserve"
+       style="font-size:65.6267px;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';fill:#000000;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       x="1167.6632"
+       y="279.86304"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="1167.6632"
+         y="279.86304"
+         style="stroke-width:25">enemy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:65.6267px;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';fill:#000000;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       x="371.90436"
+       y="514.77216"
+       id="text15"
+       transform="rotate(-11.384603)"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         x="371.90436"
+         y="514.77216"
+         style="stroke-width:25">captives</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:65.6267px;font-family:'Liberation Mono';-inkscape-font-specification:'Liberation Mono, Normal';fill:#000000;stroke:none;stroke-width:25;stroke-dasharray:none;stroke-dashoffset:200;paint-order:fill markers stroke"
+       x="1029.9604"
+       y="833.24573"
+       id="text16"
+       transform="rotate(0.32994154)"><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         x="1029.9604"
+         y="833.24573"
+         style="stroke-width:25">captives</tspan></text>
   </g>
 </svg>
