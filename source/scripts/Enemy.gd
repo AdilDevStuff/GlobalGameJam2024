@@ -12,13 +12,12 @@ var random_position
 var is_player_in_sight: bool = false
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var point: Node2D = $"../Point"
 @onready var nav_region: NavigationRegion2D = $"../NavigationRegion2D"
 
 func _ready() -> void:
 	get_random_position()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match is_player_in_sight:
 		true:
 			follow_player()
@@ -41,7 +40,7 @@ func follow_player():
 
 # Move toward random point if its within the baked mesh otherwise find another random position
 func move_to_random_position():
-	look_at(random_position)
+	look_at(nav_agent.get_next_path_position())
 	await get_tree().process_frame
 	set_target_location(random_position)
 	if nav_agent.is_target_reachable():
@@ -53,9 +52,7 @@ func move_to_random_position():
 		get_random_position()
 
 func get_random_position():
-	var screen_size = get_viewport_rect().size
-	random_position = Vector2(randf_range(0, screen_size.x), randf_range(0, screen_size.y))
-	point.position = random_position
+	random_position = Vector2(randf_range(0, 3264), randf_range(0, 1864))
 	return random_position
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
@@ -66,7 +63,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 	get_random_position()
 
 func _on_range_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and not body.is_in_group("Wall"):
 		is_player_in_sight = true
 
 func _on_range_body_exited(body: Node2D) -> void:

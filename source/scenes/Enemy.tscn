@@ -4,22 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://bsg1r6dpsndl3" path="res://assets/sprites/icon.svg" id="1_gltxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_geqfw"]
-size = Vector2(128, 126)
+size = Vector2(64, 64)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 17
 motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 4294967294
 script = ExtResource("1_2dnhb")
-follow_speed = 100.0
+follow_speed = 150.0
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.176471, 0.164706, 1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_gltxf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_geqfw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -28,6 +30,8 @@ max_speed = 400.0
 debug_enabled = true
 
 [node name="Range" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 17
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Range"]
 polygon = PackedVector2Array(0, 0, 960, -256, 960, 256)
