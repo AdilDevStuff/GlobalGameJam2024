@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://budkxlx5wk2qv"]
+[gd_scene load_steps=8 format=3 uid="uid://budkxlx5wk2qv"]
 
 [ext_resource type="Script" path="res://source/scripts/Enemy.gd" id="1_2dnhb"]
-[ext_resource type="Texture2D" uid="uid://bsg1r6dpsndl3" path="res://assets/sprites/icon.svg" id="1_gltxf"]
+[ext_resource type="Texture2D" uid="uid://b5ppniqrj7404" path="res://assets/sprites/evilguy.png" id="2_wi1ac"]
+[ext_resource type="AudioStream" uid="uid://df61to6u0txo7" path="res://assets/sound/Laugh_Evil_00.wav" id="3_s2a04"]
+[ext_resource type="AudioStream" uid="uid://blsg3t21plx8g" path="res://assets/sound/Laugh_Evil_01.wav" id="4_xrai0"]
+[ext_resource type="AudioStream" uid="uid://i5ifw48olyi5" path="res://assets/sound/Laugh_Evil_02.wav" id="5_id7hd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_geqfw"]
-size = Vector2(64, 64)
+size = Vector2(57, 102)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jaau7"]
+streams_count = 3
+stream_0/stream = ExtResource("3_s2a04")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_xrai0")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_id7hd")
+stream_2/weight = 1.0
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["Enemy"]]
 collision_layer = 4
@@ -17,11 +29,11 @@ follow_speed = 150.0
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.176471, 0.164706, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_gltxf")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_wi1ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 0)
 shape = SubResource("RectangleShape2D_geqfw")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -42,6 +54,9 @@ collision_mask = 17
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyRange"]
 polygon = PackedVector2Array(0, 0, 64, 64, 64, -64)
+
+[node name="Laughs" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jaau7")
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="body_entered" from="EnemyVision" to="." method="_on_enemy_vision_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cscjln50scenx"]
+[gd_scene load_steps=8 format=3 uid="uid://cscjln50scenx"]
 
 [ext_resource type="Script" path="res://source/scripts/LevelEndDoor.gd" id="1_efqie"]
+[ext_resource type="AudioStream" uid="uid://cd4jdgly0y8jx" path="res://assets/sound/slidingdoorSfx.wav" id="2_xqsgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mw4lm"]
 size = Vector2(192, 16)
@@ -93,6 +94,11 @@ shape = SubResource("CircleShape2D_oyix8")
 libraries = {
 "": SubResource("AnimationLibrary_xdtxu")
 }
+
+[node name="DoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xqsgj")
+volume_db = 2.0
+pitch_scale = 1.2
 
 [connection signal="body_entered" from="DoorRange" to="." method="_on_door_range_body_entered"]
 [connection signal="body_exited" from="DoorRange" to="." method="_on_door_range_body_exited"]

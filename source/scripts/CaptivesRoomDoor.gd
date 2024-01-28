@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 @onready var door_anims: AnimationPlayer = $DoorAnims
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var door_open: AudioStreamPlayer2D = $DoorOpen
 
 func _ready() -> void:
 	close_door()
@@ -13,6 +14,7 @@ func _process(_delta: float) -> void:
 				open_door()
 
 func open_door():
+	door_open.play()
 	Global.is_captive_door_opened = true
 	door_anims.play("OpenDoor")
 

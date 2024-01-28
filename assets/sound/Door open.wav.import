@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://li6lfqj4h43l"
+path="res://.godot/imported/Door open.wav-622218d640da97d9b3694aca32523f87.sample"
+
+[deps]
+
+source_file="res://assets/sound/Door open.wav"
+dest_files=["res://.godot/imported/Door open.wav-622218d640da97d9b3694aca32523f87.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

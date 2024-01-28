@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfnfbpy51w1nv"]
+[gd_scene load_steps=28 format=3 uid="uid://bfnfbpy51w1nv"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_rhevs"]
 [ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="2_uq6wa"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dkn8gugk0mb" path="res://source/scenes/CaptivesRoomDoor.tscn" id="14_hoprn"]
 [ext_resource type="PackedScene" uid="uid://dids44dpqn80p" path="res://source/scenes/CaptivesRoomKey.tscn" id="15_i5blf"]
 [ext_resource type="Script" path="res://source/scripts/GameManager.gd" id="16_v3fjb"]
+[ext_resource type="AudioStream" uid="uid://c34eqmht13je6" path="res://assets/sound/The Surreal Truth.mp3" id="17_y0djl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1dco0"]
 font = ExtResource("2_uq6wa")
@@ -204,5 +205,11 @@ position = Vector2(176, 1360)
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("16_v3fjb")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_y0djl")
+volume_db = -10.0
+pitch_scale = 2.0
+autoplay = true
 
 [editable path="Level/ExtractionZone"]

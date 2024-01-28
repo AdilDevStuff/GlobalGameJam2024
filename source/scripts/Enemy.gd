@@ -13,6 +13,7 @@ var is_player_in_sight: bool = false
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var game_over_screen: Control = $"../../UserInterface/GameOverScreen"
+@onready var laughs: AudioStreamPlayer2D = $Laughs
 
 func _ready() -> void:
 	get_random_position()
@@ -63,6 +64,7 @@ func _on_navigation_agent_2d_target_reached() -> void:
 func _on_enemy_vision_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and not body.is_in_group("Wall"):
 		is_player_in_sight = true
+		laughs.play()
 
 func _on_enemy_vision_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):

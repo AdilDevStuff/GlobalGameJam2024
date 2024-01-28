@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsrku02knu36r"]
+[gd_scene load_steps=20 format=3 uid="uid://dsrku02knu36r"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_sjmix"]
 [ext_resource type="PackedScene" uid="uid://b3eg3mav5b7aq" path="res://source/scenes/DialoguePanel.tscn" id="2_burxf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://source/scripts/GameManager.gd" id="7_p742w"]
 [ext_resource type="Script" path="res://source/scripts/LevelEnd.gd" id="8_b8rni"]
 [ext_resource type="PackedScene" uid="uid://y8wqt5amy06b" path="res://source/scenes/Levels/Level04.tscn" id="10_ovrr1"]
+[ext_resource type="AudioStream" uid="uid://c34eqmht13je6" path="res://assets/sound/The Surreal Truth.mp3" id="11_4h6wj"]
 
 [sub_resource type="Animation" id="Animation_ia8h5"]
 resource_name = "In"
@@ -175,5 +176,11 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LevelEnd"]
 shape = SubResource("RectangleShape2D_u7tgv")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4h6wj")
+volume_db = -10.0
+pitch_scale = 2.0
+autoplay = true
 
 [connection signal="body_entered" from="Level/LevelEnd" to="Level/LevelEnd" method="_on_body_entered"]

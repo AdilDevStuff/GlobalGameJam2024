@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc8508m1j8rpn"]
+[gd_scene load_steps=7 format=3 uid="uid://bc8508m1j8rpn"]
 
-[ext_resource type="Texture2D" uid="uid://bsg1r6dpsndl3" path="res://assets/sprites/icon.svg" id="1_3hxx4"]
 [ext_resource type="Script" path="res://source/scripts/Player.gd" id="1_i0x30"]
+[ext_resource type="Texture2D" uid="uid://f6ie71gxuqds" path="res://assets/sprites/player.png" id="2_cnlcx"]
+[ext_resource type="AudioStream" uid="uid://h7o8r76nrjph" path="res://assets/sound/pickupsfx.wav" id="3_t7ju1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jb8l1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_3hxx4")
+"texture": ExtResource("2_cnlcx")
 }],
 "loop": true,
 "name": &"default",
@@ -15,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuai2"]
-size = Vector2(54, 52)
+size = Vector2(34, 78)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_skshr"]
 radius = 96.0469
@@ -26,7 +27,7 @@ script = ExtResource("1_i0x30")
 speed = 600.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_jb8l1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,6 +38,10 @@ collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
 shape = SubResource("CircleShape2D_skshr")
+
+[node name="PickupSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t7ju1")
+volume_db = 2.0
 
 [connection signal="body_entered" from="InteractRange" to="." method="_on_interact_range_body_entered"]
 [connection signal="body_exited" from="InteractRange" to="." method="_on_interact_range_body_exited"]

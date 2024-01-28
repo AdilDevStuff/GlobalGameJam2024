@@ -1,6 +1,7 @@
 extends AnimatableBody2D
 
 @onready var door_anim: AnimationPlayer = $DoorAnim
+@onready var door_open: AudioStreamPlayer2D = $DoorOpen
 
 func _process(_delta: float) -> void:
 	if Global.is_in_end_door_range:
@@ -9,6 +10,7 @@ func _process(_delta: float) -> void:
 				open_door()
 
 func open_door():
+	door_open.play()
 	Global.is_end_door_opened = true
 	door_anim.play("OpenDoor")
 

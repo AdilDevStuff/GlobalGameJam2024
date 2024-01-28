@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt6p3vjtl62md"]
+[gd_scene load_steps=6 format=3 uid="uid://dt6p3vjtl62md"]
 
 [ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="1_ch8y8"]
 [ext_resource type="Script" path="res://source/scripts/MainMenu.gd" id="1_oing8"]
 [ext_resource type="PackedScene" uid="uid://xawml3qwc2m6" path="res://source/scenes/Levels/Level01.tscn" id="2_i65w2"]
 [ext_resource type="LabelSettings" uid="uid://b6qt3f4f7q8j6" path="res://source/resources/GameLabelSettings.tres" id="3_n4hqg"]
+[ext_resource type="AudioStream" uid="uid://l5ysvu108lcc" path="res://assets/sound/Night of the Streets.mp3" id="5_88ha3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -57,6 +58,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_ch8y8")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_88ha3")
+volume_db = -5.0
+pitch_scale = 2.0
+autoplay = true
 
 [connection signal="pressed" from="MenuBtns/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MenuBtns/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://l5ysvu108lcc"
+path="res://.godot/imported/Night of the Streets.mp3-4d623a60bdd8f5c26297896d45888393.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Night of the Streets.mp3"
+dest_files=["res://.godot/imported/Night of the Streets.mp3-4d623a60bdd8f5c26297896d45888393.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

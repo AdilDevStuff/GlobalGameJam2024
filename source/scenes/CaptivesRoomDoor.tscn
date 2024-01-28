@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0dkn8gugk0mb"]
+[gd_scene load_steps=8 format=3 uid="uid://b0dkn8gugk0mb"]
 
 [ext_resource type="Script" path="res://source/scripts/CaptivesRoomDoor.gd" id="1_2chod"]
+[ext_resource type="AudioStream" uid="uid://li6lfqj4h43l" path="res://assets/sound/Door open.wav" id="2_hpq0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mw4lm"]
 size = Vector2(160, 16)
@@ -73,6 +74,10 @@ position = Vector2(80, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRange"]
 shape = SubResource("CircleShape2D_oyix8")
+
+[node name="DoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hpq0y")
+pitch_scale = 2.0
 
 [connection signal="body_entered" from="DoorRange" to="." method="_on_door_range_body_entered"]
 [connection signal="body_exited" from="DoorRange" to="." method="_on_door_range_body_exited"]
