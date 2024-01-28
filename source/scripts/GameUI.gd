@@ -1,14 +1,14 @@
 extends Control
 
-@onready var prompt: Label = $Prompt
-@onready var captives_left_lable: Label = $CaptivesLeft
+@onready var prompt: Label = $Prompts
+@onready var captives_left_label: Label = $CaptivesLeft
 @onready var game_ui_anims: AnimationPlayer = $GameUIAnims
 
 func _ready() -> void:
 	game_ui_anims.play("In")
 
 func _process(_delta: float) -> void:
-	captives_left_lable.text = "Captives Left: %d" % Global.captives_left
+	captives_left_label.text = "Captives Left: %d" % Global.captives_left
 	
 	flashlight_key_prompts()
 	

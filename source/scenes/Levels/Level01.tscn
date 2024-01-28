@@ -1,0 +1,168 @@
+[gd_scene load_steps=17 format=3 uid="uid://xawml3qwc2m6"]
+
+[ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_8q14m"]
+[ext_resource type="PackedScene" uid="uid://bc8508m1j8rpn" path="res://source/scenes/Player.tscn" id="1_fspp6"]
+[ext_resource type="Texture2D" uid="uid://c26r2yu856mi1" path="res://assets/sprites/LightTexture.png" id="2_urhsh"]
+[ext_resource type="Texture2D" uid="uid://dqqjjjxh74eja" path="res://assets/sprites/tilesheet_complete.png" id="3_jj2a1"]
+[ext_resource type="Texture2D" uid="uid://dm00ouaabb2rk" path="res://assets/sprites/wall_tile.png" id="4_bedvk"]
+[ext_resource type="Script" path="res://source/scripts/GameManager.gd" id="5_cjrsb"]
+[ext_resource type="PackedScene" uid="uid://b3eg3mav5b7aq" path="res://source/scenes/DialoguePanel.tscn" id="6_vnd2f"]
+[ext_resource type="Script" path="res://source/scripts/LevelEnd.gd" id="8_mfrvm"]
+
+[sub_resource type="Animation" id="Animation_ia8h5"]
+resource_name = "In"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialoguePanel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cknx1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialoguePanel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_225de"]
+_data = {
+"In": SubResource("Animation_ia8h5"),
+"RESET": SubResource("Animation_cknx1")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxutr"]
+texture = ExtResource("3_jj2a1")
+texture_region_size = Vector2i(64, 64)
+14:1/0 = 0
+14:3/0 = 0
+12:0/0 = 0
+10:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4883h"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_jxutr")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwscd"]
+texture = ExtResource("4_bedvk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_esv3y"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 261
+sources/0 = SubResource("TileSetAtlasSource_lwscd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7tgv"]
+size = Vector2(352, 324)
+
+[node name="Level_01" type="Node2D"]
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8q14m")
+
+[node name="Prompts" type="Label" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CaptivesLeft" type="Label" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DialoguePanel" parent="UserInterface/GameUI" instance=ExtResource("6_vnd2f")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -152.0
+offset_right = 192.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(192, 64)
+character_name = "You"
+dialogues = Array[String](["Uhhh.....Where am i?", "How did i got here??", "My head hurts -"])
+
+[node name="GameUIAnims" type="AnimationPlayer" parent="UserInterface/GameUI"]
+libraries = {
+"": SubResource("AnimationLibrary_225de")
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4883h")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 917504, 1, 65536, 917504, 1, 131072, 917504, 1, 196608, 917504, 1, 262144, 917504, 1, 327680, 917504, 1, 393216, 917504, 1, 458752, 917504, 1, 524288, 917504, 1, 589824, 917504, 1, 1, 917504, 1, 65537, 917504, 1, 131073, 917504, 1, 196609, 917504, 1, 262145, 917504, 1, 327681, 917504, 1, 393217, 917504, 1, 458753, 917504, 1, 524289, 917504, 1, 589825, 917504, 1, 2, 917504, 1, 65538, 917504, 1, 131074, 917504, 1, 196610, 917504, 1, 262146, 917504, 1, 327682, 917504, 1, 393218, 917504, 1, 458754, 917504, 1, 524290, 917504, 1, 589826, 917504, 1, 3, 917504, 1, 65539, 917504, 1, 131075, 917504, 1, 196611, 917504, 1, 262147, 917504, 1, 327683, 917504, 1, 393219, 917504, 1, 458755, 917504, 1, 524291, 917504, 1, 589827, 917504, 1, 4, 917504, 1, 65540, 917504, 1, 131076, 917504, 1, 196612, 917504, 1, 262148, 917504, 1, 327684, 917504, 1, 393220, 917504, 1, 458756, 917504, 1, 524292, 917504, 1, 589828, 917504, 1, 5, 917504, 1, 65541, 917504, 1, 131077, 917504, 1, 196613, 917504, 1, 262149, 917504, 1, 327685, 917504, 1, 393221, 917504, 1, 458757, 917504, 1, 524293, 917504, 1, 589829, 917504, 1, 6, 917504, 1, 65542, 917504, 1, 131078, 917504, 1, 196614, 917504, 1, 262150, 917504, 1, 327686, 917504, 1, 393222, 917504, 1, 458758, 917504, 1, 524294, 917504, 1, 589830, 917504, 1, 7, 917504, 1, 65543, 917504, 1, 131079, 917504, 1, 196615, 917504, 1, 262151, 917504, 1, 327687, 917504, 1, 393223, 917504, 1, 458759, 917504, 1, 524295, 917504, 1, 589831, 917504, 1, 8, 917504, 1, 65544, 917504, 1, 131080, 917504, 1, 196616, 917504, 1, 262152, 917504, 1, 327688, 917504, 1, 393224, 917504, 1, 458760, 917504, 1, 524296, 917504, 1, 589832, 917504, 1, 9, 917504, 1, 65545, 917504, 1, 131081, 917504, 1, 196617, 917504, 1, 262153, 917504, 1, 327689, 917504, 1, 393225, 917504, 1, 458761, 917504, 1, 524297, 917504, 1, 589833, 917504, 1, 10, 917504, 1, 65546, 917504, 1, 131082, 917504, 1, 196618, 917504, 1, 262154, 917504, 1, 327690, 917504, 1, 393226, 917504, 1, 458762, 917504, 1, 524298, 917504, 1, 589834, 917504, 1, 11, 917504, 1, 65547, 917504, 1, 131083, 917504, 1, 196619, 917504, 1, 262155, 917504, 1, 327691, 917504, 1, 393227, 917504, 1, 458763, 917504, 1, 524299, 917504, 1, 589835, 917504, 1, 12, 917504, 1, 65548, 917504, 1, 131084, 917504, 1, 196620, 917504, 1, 262156, 917504, 1, 327692, 917504, 1, 393228, 917504, 1, 458764, 917504, 1, 524300, 917504, 1, 589836, 917504, 1, 13, 917504, 1, 65549, 917504, 1, 131085, 917504, 1, 196621, 917504, 1, 262157, 917504, 1, 327693, 917504, 1, 393229, 917504, 1, 458765, 917504, 1, 524301, 917504, 1, 589837, 917504, 1, 14, 917504, 1, 65550, 917504, 1, 131086, 917504, 1, 196622, 917504, 1, 262158, 917504, 1, 327694, 917504, 1, 393230, 917504, 1, 458766, 917504, 1, 524302, 917504, 1, 589838, 917504, 1, 15, 917504, 1, 65551, 917504, 1, 131087, 917504, 1, 196623, 917504, 1, 262159, 917504, 1, 327695, 917504, 1, 393231, 917504, 1, 458767, 917504, 1, 524303, 917504, 1, 589839, 917504, 1, 16, 917504, 1, 65552, 917504, 1, 131088, 917504, 1, 196624, 917504, 1, 262160, 917504, 1, 327696, 917504, 1, 393232, 917504, 1, 458768, 917504, 1, 524304, 917504, 1, 589840, 917504, 1, 17, 917504, 1, 65553, 917504, 1, 131089, 917504, 1, 196625, 917504, 1, 262161, 917504, 1, 327697, 917504, 1, 393233, 917504, 1, 458769, 917504, 1, 524305, 917504, 1, 589841, 917504, 1, 655377, 917504, 1, 655376, 917504, 1, 655375, 917504, 1, 655374, 917504, 1, 655373, 917504, 1, 655372, 917504, 1, 655371, 917504, 1, 655370, 917504, 1, 655369, 917504, 1, 655368, 917504, 1, 655367, 917504, 1, 655366, 917504, 1, 655363, 917504, 1, 655362, 917504, 1, 655361, 917504, 1, 655360, 917504, 1, 655364, 917504, 1, 655365, 917504, 1)
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_esv3y")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114112, 0, 0, 1179648, 0, 0, 1245184, 0, 0, 1245219, 0, 0, 1179683, 0, 0, 1114147, 0, 0, 1048611, 0, 0, 983075, 0, 0, 917539, 0, 0, 852003, 0, 0, 786467, 0, 0, 720931, 0, 0, 655395, 0, 0, 589859, 0, 0, 524323, 0, 0, 458787, 0, 0, 393251, 0, 0, 327715, 0, 0, 262179, 0, 0, 196643, 0, 0, 131107, 0, 0, 65571, 0, 0, 35, 0, 0, 34, 0, 0, 33, 0, 0, 32, 0, 0, 26, 0, 0, 25, 0, 0, 24, 0, 0, 23, 0, 0, 22, 0, 0, 21, 0, 0, 20, 0, 0, 19, 0, 0, 18, 0, 0, 17, 0, 0, 16, 0, 0, 15, 0, 0, 14, 0, 0, 13, 0, 0, 12, 0, 0, 11, 0, 0, 10, 0, 0, 9, 0, 0, 8, 0, 0, 7, 0, 0, 6, 0, 0, 5, 0, 0, 4, 0, 0, 3, 0, 0, 2, 0, 0, 1, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 786446, 0, 0, 851982, 0, 0, 917518, 0, 0, 983054, 0, 0, 1048590, 0, 0, 1114126, 0, 0, 1179662, 0, 0, 65559, 0, 0, 131095, 0, 0, 196631, 0, 0, 262167, 0, 0, 327703, 0, 0, 393239, 0, 0, 458775, 0, 0, 524311, 0, 0, 589847, 0, 0, 655383, 0, 0, 720919, 0, 0, 720918, 0, 0, 720917, 0, 0, 720911, 0, 0, 720912, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376262, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1376265, 0, 0, 1376266, 0, 0, 1376267, 0, 0, 1376268, 0, 0, 1376269, 0, 0, 1376270, 0, 0, 1376271, 0, 0, 1376272, 0, 0, 1376273, 0, 0, 1376274, 0, 0, 1376275, 0, 0, 1376276, 0, 0, 1376277, 0, 0, 1376278, 0, 0, 1376279, 0, 0, 1376280, 0, 0, 1376281, 0, 0, 1376282, 0, 0, 1376283, 0, 0, 1376284, 0, 0, 1376285, 0, 0, 1376286, 0, 0, 1376287, 0, 0, 1376288, 0, 0, 1376289, 0, 0, 1376290, 0, 0, 1376291, 0, 0, 1310755, 0, 0, 1310720, 0, 0)
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_fspp6")]
+position = Vector2(233, 509)
+
+[node name="PointLight2D" type="PointLight2D" parent="Entities/Player"]
+energy = 0.1
+texture = ExtResource("2_urhsh")
+texture_scale = 0.4
+
+[node name="Camera2D" type="Camera2D" parent="Entities/Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 705
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_limits = true
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("5_cjrsb")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="LevelEnd" type="Area2D" parent="Level"]
+position = Vector2(944, -168)
+script = ExtResource("8_mfrvm")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LevelEnd"]
+shape = SubResource("RectangleShape2D_u7tgv")
+
+[connection signal="body_entered" from="Level/LevelEnd" to="Level/LevelEnd" method="_on_body_entered"]
