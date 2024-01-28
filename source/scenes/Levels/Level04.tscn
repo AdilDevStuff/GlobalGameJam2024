@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://y8wqt5amy06b"]
+[gd_scene load_steps=25 format=3 uid="uid://y8wqt5amy06b"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_bbrlx"]
 [ext_resource type="PackedScene" uid="uid://b3eg3mav5b7aq" path="res://source/scenes/DialoguePanel.tscn" id="2_m6won"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://budkxlx5wk2qv" path="res://source/scenes/Enemy.tscn" id="8_h6e0x"]
 [ext_resource type="Script" path="res://source/scripts/GameManager.gd" id="8_ob1q6"]
 [ext_resource type="Script" path="res://source/scripts/LevelEnd.gd" id="9_u66vt"]
+[ext_resource type="PackedScene" uid="uid://bukjqjdc8q4wd" path="res://source/scenes/Levels/Level05.tscn" id="14_bi6i2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1dco0"]
 font = ExtResource("2_sngqg")
@@ -208,6 +209,7 @@ script = ExtResource("8_ob1q6")
 [node name="LevelEnd" type="Area2D" parent="Level"]
 position = Vector2(-176, 992)
 script = ExtResource("9_u66vt")
+next_scene = ExtResource("14_bi6i2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LevelEnd"]
