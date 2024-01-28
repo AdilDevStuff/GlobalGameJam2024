@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfnfbpy51w1nv"]
+[gd_scene load_steps=27 format=3 uid="uid://bfnfbpy51w1nv"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_rhevs"]
 [ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="2_uq6wa"]
 [ext_resource type="PackedScene" uid="uid://cs5d4osndh8e" path="res://source/scenes/UI/GameOverScreen.tscn" id="4_kcphd"]
 [ext_resource type="Texture2D" uid="uid://dqqjjjxh74eja" path="res://assets/sprites/tilesheet_complete.png" id="5_ih2o1"]
 [ext_resource type="Texture2D" uid="uid://dm00ouaabb2rk" path="res://assets/sprites/wall_tile.png" id="6_41ogh"]
+[ext_resource type="PackedScene" uid="uid://dfm04mype60ft" path="res://source/scenes/UI/EndScreen.tscn" id="7_jrm3h"]
 [ext_resource type="PackedScene" uid="uid://cn4sjqdu4u3d" path="res://source/scenes/ExtractionZone.tscn" id="7_lkejt"]
 [ext_resource type="PackedScene" uid="uid://bc8508m1j8rpn" path="res://source/scenes/Player.tscn" id="8_in6j6"]
 [ext_resource type="Texture2D" uid="uid://c26r2yu856mi1" path="res://assets/sprites/LightTexture.png" id="9_axgrl"]
@@ -119,7 +120,6 @@ libraries = {
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Ground" type="TileMap" parent="."]
@@ -140,6 +140,7 @@ layer_0/tile_data = PackedInt32Array(3866624, 0, 0, 3866625, 0, 0, 3866626, 0, 0
 
 [node name="ExtractionZone" parent="Level" node_paths=PackedStringArray("captives_group") instance=ExtResource("7_lkejt")]
 position = Vector2(392, 1648)
+next_scene = ExtResource("7_jrm3h")
 captives_group = NodePath("../../Entities/Captives")
 
 [node name="CollisionShape2D" parent="Level/ExtractionZone" index="0"]

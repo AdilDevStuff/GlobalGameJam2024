@@ -3,10 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="1_ch8y8"]
 [ext_resource type="Script" path="res://source/scripts/MainMenu.gd" id="1_oing8"]
 [ext_resource type="PackedScene" uid="uid://xawml3qwc2m6" path="res://source/scenes/Levels/Level01.tscn" id="2_i65w2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_y1ndv"]
-font = ExtResource("1_ch8y8")
-font_size = 100
+[ext_resource type="LabelSettings" uid="uid://b6qt3f4f7q8j6" path="res://source/resources/GameLabelSettings.tres" id="3_n4hqg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,7 +29,7 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Make Him Laugh"
-label_settings = SubResource("LabelSettings_y1ndv")
+label_settings = ExtResource("3_n4hqg")
 
 [node name="MenuBtns" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b6qt3f4f7q8j6"]
+
+[ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="1_ab56k"]
+
+[resource]
+font = ExtResource("1_ab56k")
+font_size = 100
