@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bukjqjdc8q4wd"]
+[gd_scene load_steps=28 format=3 uid="uid://bukjqjdc8q4wd"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_enbgn"]
 [ext_resource type="FontFile" uid="uid://cndmbsv7nvxcv" path="res://assets/who asks satan.ttf" id="2_gxwe7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqqjjjxh74eja" path="res://assets/sprites/tilesheet_complete.png" id="5_umhjo"]
 [ext_resource type="Texture2D" uid="uid://dm00ouaabb2rk" path="res://assets/sprites/wall_tile.png" id="6_i07xc"]
 [ext_resource type="PackedScene" uid="uid://bc8508m1j8rpn" path="res://source/scenes/Player.tscn" id="7_a43hi"]
+[ext_resource type="PackedScene" uid="uid://bfnfbpy51w1nv" path="res://source/scenes/Levels/Level06.tscn" id="8_o852u"]
 [ext_resource type="Texture2D" uid="uid://c26r2yu856mi1" path="res://assets/sprites/LightTexture.png" id="8_rssr7"]
 [ext_resource type="PackedScene" uid="uid://budkxlx5wk2qv" path="res://source/scenes/Enemy.tscn" id="9_fiq4k"]
 [ext_resource type="PackedScene" uid="uid://cscjln50scenx" path="res://source/scenes/LevelEndDoor.tscn" id="10_1jfpr"]
@@ -181,6 +182,7 @@ layer_0/tile_data = PackedInt32Array(2359296, 0, 0, 2424832, 0, 0, 2490368, 0, 0
 
 [node name="ExtractionZone" parent="Level" node_paths=PackedStringArray("captives_group") instance=ExtResource("14_fyah6")]
 position = Vector2(1784, 1440)
+next_scene = ExtResource("8_o852u")
 captives_group = NodePath("../../Entities/Captives")
 
 [node name="CollisionShape2D" parent="Level/ExtractionZone" index="0"]
