@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsrku02knu36r"]
+[gd_scene load_steps=19 format=3 uid="uid://dsrku02knu36r"]
 
 [ext_resource type="Script" path="res://source/scripts/GameUI.gd" id="1_sjmix"]
 [ext_resource type="PackedScene" uid="uid://b3eg3mav5b7aq" path="res://source/scenes/DialoguePanel.tscn" id="2_burxf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://hpllmg2gdy2y" path="res://source/scenes/FlashlightPickup.tscn" id="7_b80xb"]
 [ext_resource type="Script" path="res://source/scripts/GameManager.gd" id="7_p742w"]
 [ext_resource type="Script" path="res://source/scripts/LevelEnd.gd" id="8_b8rni"]
+[ext_resource type="PackedScene" uid="uid://y8wqt5amy06b" path="res://source/scenes/Levels/Level04.tscn" id="10_ovrr1"]
 
 [sub_resource type="Animation" id="Animation_ia8h5"]
 resource_name = "In"
@@ -169,6 +170,7 @@ script = ExtResource("7_p742w")
 [node name="LevelEnd" type="Area2D" parent="Level"]
 position = Vector2(1000, 1312)
 script = ExtResource("8_b8rni")
+next_scene = ExtResource("10_ovrr1")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LevelEnd"]
